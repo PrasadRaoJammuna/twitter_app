@@ -13,4 +13,3 @@ requests-oauthlib==1.2.0
 oauthlib==3.1.0
 bs4==0.0.1
 beautifulsoup4==4.7.1
-nltk==3.4.4
