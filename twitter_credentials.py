@@ -1,6 +1,0 @@
-
-
-ckey=''
-csecret =''
-atoken=''
-asecret =''
