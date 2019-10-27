@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+<br>
+<br>
+{% block content %}
+
+        {% if e ==''%}
+        <button type="button" class="btn btn-success text-center">
+        <p>Profile found</p>
+       
+        {% else %}
+        <b style="color: red">{{ e }}</b>
+        
+
+        {% endif %}
+      <div>
+            {{data['name']}}
+            {{data['twitter_profile']}}
+            {{data['location']}}
+            {{data['description']}}
+            {{data['followers']}}
+            {{data['following']}}
+            {{data['profile_created']}}
+            {{data['recent_tweet']}}
+            {{data['tweet_created']}}
+            {{data['retweet']}}
+            {{data['favorited']}}
+
+      </div>
+
+{% endblock %}

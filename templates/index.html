@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Twitter APP</title>
+</head>
+<body>
+    {%block content%}
+    
+
+        <div class="alert alert-dark text-center">
+                <h1> ®All Copyrights reserved by Jp©</h1>
+              <button type="button" class="btn btn-success text-center">
+                    Top <span class="badge badge-light">7</span>  Trending #Hashtags 
+                </button>
+                <br>
+                <br>
+                {% for tweet in tweets %}
+                <span class="badge badge-pill badge-primary">{{tweet}}</span>
+                {% endfor %}
+                <small class="form-text text-muted text-left "><b style="color:red">NOTE:</b> #Hashtags changed over the time </small>
+    </div>
+
+<br>
+<br>
+<div class="alert alert-success text-center" role="alert">
+        <h2 class="text-center" style="color:rgb(20, 167, 45)">Profile Data</h2>
+        <form action="{{url_for('profile')}}" method="POST">
+                <div class="form-group">
+                  <input type="text" name="profile" class="form-control text-center" id="exampleInputEmail1" aria-describedby="profile" placeholder="Enter exact profile name">
+                  <small id="profile" class="form-text text-muted text-center ">We will get the details of Entered  user. </small>
+                </div>
+                <button type="submit" class="btn btn-primary text-center">Get a Profile</button>
+        </form>
+        {% if  e==""%}
+        <div class="text-left">
+     <b>#Name: </b><i style="color:navy">{{name}}</i><br>
+     <b>#Twitter Profile: </b><i style="color:navy">{{twitter_profile}}</i><br>
+     <b>#Location: </b><i style="color:navy">{{location}}</i><br>
+     <b>#Profile created: </b><i style="color:navy">{{profile_created}}</i><br>
+     <b>#Description: </b><i style="color:navy">{{descripption}}</i><br>
+     <b>#Followers: </b><i style="color:navy">{{followers}}</i><br>
+     <b>#Following: </b><i style="color:navy">{{following}}</i><br>
+     <b>#Recent Tweet: </b><i style="color:navy">{{recent_tweet}}</i><br>
+     <b>#Tweet created: </b><i style="color:navy">{{tweet_created}}</i><br>
+     <b>#Retweet count: </b><i style="color:navy">{{retweet_count}}</i><br>
+     <b>#Fovorite by others: </b><i style="color:navy">{{favorite_count}}</i>
+      </div>
+      {% else %}
+      {{e}}
+      {% endif %}
+    </div>
+
+    <br>
+    <br>
+    <div>
+            <div class="alert alert-danger text-center" >
+                    <h3 class="text-center">Sentiment analysis</h3> 
+                    <form class='text-center' action="{{url_for('sentiment')}}" method='POST'>
+                    <div class="form-group text-center">
+                        <input type="text" class="form-control text-center " name="search_term" placeholder="Enter search Term">
+                        <br><input type="text" class="form-control text-center " name="count" placeholder="Enter No.of Tweets">
+                        <small id="tweet" class="form-text text-muted color-dark"><p style="color:black">We are going to analyze the search term with the no.of tweets.Tweets were randomly choosen,so you may not get same results. It will take little tiime to analyze.</p></small>
+                        <button type="submit" class="btn btn-primary text-center">Get Results</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="alert alert-dark text-center">
+                <div>
+                    <img src="/sentiment/" alt="sentiment pie chart">
+            </div></div>
+            {{e}}
+    </div>
+
+     {% endblock %}
+</body>
+
+</html>
